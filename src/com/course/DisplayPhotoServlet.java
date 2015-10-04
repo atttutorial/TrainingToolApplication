@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.javatpoint.ConProvider;
+import com.point.ConProvider;
 
 @WebServlet(name = "DisplayPhotoServlet", urlPatterns = {"/displayphoto"})
 public class DisplayPhotoServlet extends HttpServlet {
@@ -34,18 +34,11 @@ public class DisplayPhotoServlet extends HttpServlet {
         	else{
         		  count = Integer.parseInt(request.getParameter("name"));
         	}
-            if(count<=0)
-            {
-             ps = con.prepareStatement("select PICTURE  from COURSE_PICTURE where picture_count = 1 AND COURSE_ID = 45");
-             System.out.println("IF BLOCK");
-            }
-            else if(count>=1){
-             ps = con.prepareStatement("select PICTURE  from CoursePicture where picture_count = ? AND CourseID  = ?");
+           
+            if(count>=1){
+             ps = con.prepareStatement("select PICTURE  from CoursePicture_RECORD where picture_count = ? AND CourseID  = ?");
              ps.setInt(1,count );
              ps.setString(2, courseId);
-             int  pictureCount  =PictureCount.getPictureCount(courseId);
-             System.out.println("******PICTURE COUNT METHOD******"+pictureCount);
-             session.setAttribute("maxPictureCount", pictureCount);
             }
             rs = ps.executeQuery();
             System.out.println(count+1);

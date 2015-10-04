@@ -20,33 +20,22 @@ th {
 		<thead>
 			<tr>
 				<th>COURSE ID</th>
-				<th>COURSE NAME</th>
-				<th>COURSE MIN TIME</th>
-				<th>COURSE MAX TIME</th>
-				<th>COURSE AUTHOR</th>
-				<th>COURSE FILE NAME</th>
-								<th>USER ROLE</th>
-								<th colspan=2>Action</th>
+				<th>COURSES NAME</th>
+				<th>FILE NAME</th>
+				<th>AUTHOR</th>
+				<th>DATE</th>
+				<th colspan=2>Action</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${courses}" var="course">
 				<tr>
-					<td><c:out value="${course.cid}" />
-					</td>
-					<td><c:out value="${course.cname}" />
-					</td>
-					<td><c:out value="${course.cmin}" />
-					</td>
-					<td><c:out value="${course.cmax}" />
-					</td>
-					<td><c:out value="${course.cfileName}" />
-					</td>
-					<td><c:out value="${course.cauthor}" />
-					</td>
-					</td>
-					<td><c:out value="${course.courseRoleId}" />
-					</td>
+					<td><c:out value="${course.cid}" /></td>
+					<td><c:out value="${course.cname}" /></td>
+					<td><c:out value="${course.cfileName}" /></td>
+					<td><c:out value="${course.cauthor}" /></td>
+					<td><c:out value="20-NOV-2015" /></td>
+					
 					<td><a
 						href="CourseController?action=edit&cid=<c:out value="${course.cid}"/>">Update</a>
 					</td>

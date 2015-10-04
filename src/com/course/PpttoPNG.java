@@ -16,8 +16,9 @@ import java.sql.PreparedStatement;
 import javax.imageio.ImageIO;
 import org.apache.poi.xslf.usermodel.XMLSlideShow;
 import org.apache.poi.xslf.usermodel.XSLFSlide;
-import com.javatpoint.ConProvider;
-import com.javatpoint.Formatter;
+
+import com.point.ConProvider;
+import com.point.Formatter;
 public class PpttoPNG {
 	static BufferedImage img;
 	static FileOutputStream out;
@@ -59,7 +60,7 @@ public class PpttoPNG {
 			try{
 				con=ConProvider.getConnection();
 				System.out.println(">>>>>>>>>>"+fileName);
-				ps=con.prepareStatement("insert into CoursePicture (CourseID,picture,Picture_Count,Picture_Id,COURSE_PICTURE) values((select CID from COURSE_DETAILS where cauthor = "+"'"+fileName+"'"+"and  ROWNUM = 1 "+ "),?,?,PICTURE_ID.NEXTVAL,?)");
+				ps=con.prepareStatement("insert into CoursePicture_RECORD (CourseID,picture,Picture_Count,Picture_Id,COURSE_PICTURE) values((select CID from COURSE_DETAILS_RECORD where COURSEFILENAME = "+"'"+fileName+"'"+"and  ROWNUM = 1 "+ "),?,?,PICTURE_ID.NEXTVAL,?)");
 				FileInputStream fin=new FileInputStream(imagePath);
 				System.out.println(imagePath);
 				ps.setBinaryStream(1,fin,fin.available());

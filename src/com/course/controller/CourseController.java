@@ -13,12 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.course.dao.CourseDao;
-import com.course.model.Course;
+import com.course.model.CourseSecond;
 
 public class CourseController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     //private static String INSERT_OR_EDIT = "/user.jsp";
-    private static String INSERT_OR_EDIT = "/editCourse.jsp";
+    private static String INSERT_OR_EDIT = "/editCourseDetails.jsp";
     private static String PASS_COURSE = "/indexToPass.jsp";
     private static String LIST_COURSES = "/courseDetails.jsp";
     private static String LAUNCH_COURSE = "/launchCourse.jsp";
@@ -48,7 +48,7 @@ public class CourseController extends HttpServlet {
         } else if (action.equalsIgnoreCase("edit")&&userRole.equals("admin")){
             forward = INSERT_OR_EDIT;
             int cid = Integer.parseInt(request.getParameter("cid"));
-            Course course = dao.getCourseById(cid);
+            CourseSecond course = dao.getCourseById(cid);
             request.setAttribute("course", course);
         } else if (action.equalsIgnoreCase("listOfCourse")&&(userRole.equals("admin"))){
             forward = LIST_COURSES;
@@ -80,9 +80,9 @@ public class CourseController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Course course = new Course();
+        CourseSecond course = new CourseSecond();
         course.setCname(request.getParameter("cname"));
-        course.setCmin(Integer.parseInt(request.getParameter("cminDuration")));
+        course.setCmin(request.getParameter("cminDuration"));
         course.setCmax(Integer.parseInt(request.getParameter("cmaxDuration")));
         course.setCauthor(request.getParameter("cauthor"));
         int courseId = Integer.parseInt(request.getParameter("cid"));

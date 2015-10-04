@@ -1,4 +1,4 @@
-<%@ page language="java" import="co.edureka.quiz.*"
+<%@ page language="java" import="com.quiz.*"
 	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -58,7 +58,6 @@ body {
 <br />
 
 <body onload="examTimer()">
-
 	<div style="position: absolute; left: 50px; top: 20px">
 		<%
 			int currentQuestion = ((Exam) request.getSession().getAttribute("currentExam")).getCurrentQuestion();
@@ -67,9 +66,7 @@ body {
 		Current Question ${sessionScope.quest.questionNumber+1} /
 		${sessionScope.totalNumberOfQuizQuestions}
 	</div>
-
 	<div id="showtime" style="position: absolute; left: 800px; top: 20px"></div>
-
 	<div
 		style="position: absolute; width: 1000px; padding: 25px; height: 200px; border: 1px solid green; left: 100px; top: 60px">
 		<span>${sessionScope.quest.question}</span><br /> <br />
@@ -80,8 +77,6 @@ body {
 				<input type="radio" name="answer" value="${counter.count}">${choice}  <br />
 			</c:forEach>
 			<br />
-
-
 			<c:if test="${sessionScope.quest.questionNumber > 0}">
 				<input type="submit" name="action" value="Previous"
 					onclick="customSubmit()" />
@@ -92,18 +87,10 @@ body {
 				<input type="submit" name="action" value="Next"
 					onclick="customSubmit()" />
 			</c:if>
-
-
 			<input type="submit" name="action" value="Finish Exam"
 				onclick="customSubmit()" /> <input type="hidden" name="minute" />
 			<input type="hidden" name="second" />
-
 		</form>
-
-
 	</div>
-
-
-
 </body>
 </html>

@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import com.course.model.Users;
-import com.javatpoint.ConProvider;
+import com.point.ConProvider;
 public class UsersDao {
 	private Connection connection = null;
 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yy");

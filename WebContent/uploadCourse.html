@@ -1,100 +1,41 @@
-
 <html>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<style type="text/css">
-.inputform {
-	float: left;
-	margin-left: 0%;
-	margin-top: -.5%;
-	width: 500px;
-	border: 1px solid #0066CC;
-	border-radius: 10px;
-	padding: 10px;
-}
+<head>
+<title>Javascript Checkbox Visibility</title>
 
-.inputform table tr td input,textarea,select {
-	width: 200px;
-}
+<script type="text/javascript">
+    
+        function showHide()
+        {
+            if(document.getElementById('Checkbox1').checked)
+            {
+                document.getElementById('Text1').style.visibility = 'visible';
+		document.getElementById('entryLevelCb').style.visibility = 'visible';
+		document.getElementById('entry').style.visibility = 'visible';
+            }
+            else
+            {
+                document.getElementById('Text1').style.visibility = 'hidden';
+		document.getElementById('entryLevelCb').style.visibility = 'hidden';
+		document.getElementById('entry').style.visibility = 'hidden';
+            }
+        }
 
-#register {
-	margin-left: 100px;
-	width: 100px;
-	margin-top: 10%;
-}
+    </script>
 
-#login {
-	margin-left: 100px;
-	width: 100px;
-	margin-top: 10%;
-}
-
-.design {
-	background-color: #0066CC;
-	color: white;
-	padding-left: 38%;
-}
-
-#password {
-	background-color: yellow;
-	width: 120%;
-	margin-top: 10%
-}
-
-#email {
-	background-color: yellow;
-	width: 120%;
-	margin-top: 10%
-}
-</style>
+</head>
 <body>
 
-	<div class="inputform" style="float: left;">
-		<h2 class="design">Upload Course</h2>
-		<form action="InsertCourseDetails" method="post">
-			<table>
-				<tr>
-					<td>Course Name:</td>
-					<td><input type="text" id="email" name="cname" />
-					</td>
-				</tr>
-				<tr>
-					<td>Course Min Duration:</td>
-					<td><input id="password" type="text" name="cminDuration" />
-					</td>
-				</tr>
-				<tr>
-					<td>Course Max Duration:</td>
-					<td><input id="password" type="text" name="cmaxDuration" />
-					</td>
-				</tr>
-				<tr>
-					<td>Course Author:</td>
-					<td><input id="password" type="text" name="cauthor" />
-					</td>
-				</tr>
-				<tr>
-					<td>USER:</td>
-					<td><select name="userRole">
-							<option>Test Analyst</option>
-							<option>Manager</option>
-							<option>Team Lead</option>
-					</select>
-					</td>
-				</tr>
-				<tr>
-					<td>File:</td>
-					<td><input id="password" type="file" name="uploadFile" />
-					</td>
-				</tr>
-				<tr>
-					<td><input id="login" type="submit" value="Submit" />
-					</td>
-					<td><input id="register" type="reset" value="Reset" />
-					</td>
-				</tr>
-			</table>
-		</form>
-	</div>
+	<p>Check mark the checkbox to set the visiblity property of
+		textbox. It will allow you to show/hide the textbox control
+		dynamically.</p>
+
+	<p>
+		<input id="Checkbox1" type="checkbox" onclick="showHide();"
+			checked="checked" /><label for="Checkbox1">Show/Hide</label><br />
+		<br /> <input id="Text1" type="text" /> <input type="checkbox"
+			id="entryLevelCb" name="Entry level" value="Entry Level"><label
+			id="entry" for="entryLevelCb">Entry Level </label>
+	</p>
+
 </body>
 </html>
